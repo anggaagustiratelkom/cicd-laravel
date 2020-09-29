@@ -32,3 +32,4 @@ jobs:
       - docker images
       - docker tag travis-ci-build-stages-demo $DOCKER_USERNAME/cicd-laravel
       - docker push $DOCKER_USERNAME/cicd-laravel
+      - docker pull $DOCKER_USERNAME/cicd-laravel  &&   docker run  -p 0.0.0.0:8080:8080/tcp --env-file ./.env   $DOCKER_USERNAME/cicd-laravel
